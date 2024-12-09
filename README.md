@@ -13,7 +13,7 @@
 To train the model on MTSP and MPDP instances with 50 nodes and a variable number of agents ranging from 2 to 10:
 
 ```bash
-python run.py --graph_size 50 --problem mtsp --run_name 'mtsp50' --agent_min 2 --agent_max 10
+python run.py --graph_size 500 --problem mtsp --run_name 'mtsp500' --agent_min 2 --agent_max 10
 ```
 
 ```bash
@@ -32,6 +32,7 @@ You can finetuning using a pretrained model by using the `--load_path` option:
 
 ```bash
 python run.py --graph_size 200 --problem mtsp --load_path pretrained/mtsp/mtsp50/epoch-100.pt --batch_size 64 --agent_min 10 --agent_max 20 --ft Y
+python run.py --graph_size 500 --problem mtsp --load_path pretrained/mtsp/mtsp500/epoch-0.pt --batch_size 64 --agent_min 2 --agent_max 10 --ft Y
 ```
 
 ## Evalutation
@@ -42,6 +43,7 @@ python run.py --graph_size 200 --problem mtsp --load_path pretrained/mtsp/mtsp50
 - MTSP
     ```bash
     python eval.py data/mtsp/mtsp200_test_seed3333.pkl --problem mtsp --model pretrained/mtsp/mtsp200/epoch-4.pt --decode_strategy greedy --agent_num 10  --is_serial True --val_size 100 --ft Y
+    python eval.py data/mtsp/mtsp500_test_seed3333.pkl --problem mtsp --model pretrained/mtsp/mtsp500/epoch-0.pt --decode_strategy greedy --agent_num 10  --is_serial True --val_size 100 --ft Y
     ```
 - MPDP
     ```bash

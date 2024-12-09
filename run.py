@@ -14,7 +14,8 @@ from utils import torch_load_cpu, load_problem
 
 
 def run(opts):
-
+    torch.cuda.empty_cache()
+    torch.cuda.memory_summary(device=None, abbreviated=False)
     # Pretty print the run args
     pp.pprint(vars(opts))
 

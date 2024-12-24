@@ -191,6 +191,7 @@ class AttentionModel(nn.Module):
             positional_embedding = self.positional_encoding(depot_embedding.size(0), depot_embedding.size(1))
             positional_embedding = positional_embedding.to(depot_embedding.device)
             positional_embedding = self.alpha * self.pos_emb_proj(positional_embedding) / self.agent_num
+
             
             # Add the positional embedding to the depot embedding to give order bias to the agents
             depot_embedding = depot_embedding + positional_embedding[None,:,:]

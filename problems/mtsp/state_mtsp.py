@@ -48,7 +48,6 @@ class State_MTSP(NamedTuple):
 
     @staticmethod
     def initialize(loc, agent_num, visited_dtype=torch.uint8):
-        
         # In mtsp the cities is start from index 1
         left_city = loc[:,1:,:].size(1)
         loc = torch.cat((loc[:,:1,:].repeat(1, agent_num, 1), loc),1)
